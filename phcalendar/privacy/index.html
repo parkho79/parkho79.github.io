@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>간편 음력 달력 - Privacy Policy</title>
+<style>
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans KR", sans-serif;
+    line-height: 1.7;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 32px 20px 80px;
+    color: #222;
+    background: #fff;
+  }
+  h1 { font-size: 1.6em; margin-bottom: 4px; }
+  h2 { font-size: 1.15em; margin-top: 2em; border-bottom: 1px solid #eee; padding-bottom: 6px; }
+  .updated { color: #666; font-size: 0.9em; margin-bottom: 2em; }
+  table { border-collapse: collapse; width: 100%; margin: 1em 0; }
+  th, td { border: 1px solid #ddd; padding: 8px 10px; text-align: left; font-size: 0.95em; vertical-align: top; }
+  th { background: #f7f7f7; }
+  code { background: #f2f2f2; padding: 1px 5px; border-radius: 3px; font-size: 0.9em; }
+  hr { border: none; border-top: 1px solid #eee; margin: 3em 0; }
+  footer { color: #888; font-size: 0.85em; }
+  .lang-section { margin-top: 3em; }
+</style>
+</head>
+<body>
+
+<h1>간편 음력 달력 개인정보처리방침 (Privacy Policy)</h1>
+<p class="updated">Last updated / 최종 수정일: 2026-10-29</p>
+
+<div class="lang-section">
+<h2>1. 개요</h2>
+<p>
+"간편 음력 달력"(영문명 "Simple lunar calendar", 이하 "앱")은 개인 개발자(parkho79)가 개발한 안드로이드 달력 애플리케이션입니다.
+본 방침은 앱이 어떤 정보를 다루는지, 어떻게 처리하는지를 설명합니다.
+</p>
+
+<h2>2. 앱이 사용하는 권한과 목적</h2>
+<table>
+<tr><th>권한</th><th>목적</th></tr>
+<tr>
+  <td><code>POST_NOTIFICATIONS</code></td>
+  <td>사용자가 메모에 설정한 알림을 표시하기 위해 사용합니다.</td>
+</tr>
+<tr>
+  <td><code>SCHEDULE_EXACT_ALARM</code></td>
+  <td>설정한 시각에 정확하게 알림을 울리기 위해 사용합니다.</td>
+</tr>
+<tr>
+  <td><code>RECEIVE_BOOT_COMPLETED</code></td>
+  <td>기기가 재부팅된 후에도 예정된 알림과 위젯이 정상적으로 다시 등록되도록 하기 위해 사용합니다.</td>
+</tr>
+<tr>
+  <td><code>REQUEST_IGNORE_BATTERY_OPTIMIZATIONS</code></td>
+  <td>배터리 최적화 때문에 알림이 늦거나 울리지 않는 것을 막기 위해, 사용자가 동의한 경우에만 배터리 최적화 예외를 요청합니다.</td>
+</tr>
+<tr>
+  <td><code>READ_EXTERNAL_STORAGE</code> / <code>WRITE_EXTERNAL_STORAGE</code></td>
+  <td>사용자가 직접 실행한 백업·복원 기능에서, 사용자가 고른 위치에 백업 파일을 저장하고 읽기 위해 사용합니다(구형 Android 버전).</td>
+</tr>
+<tr>
+  <td><code>INTERNET</code> / <code>ACCESS_NETWORK_STATE</code></td>
+  <td>크래시 리포트(4항)를 전송하고 광고(5항)를 표시하기 위해 사용합니다. 이 통신에는 사용자의 메모 내용이 포함되지 않습니다.</td>
+</tr>
+<tr>
+  <td><code>com.google.android.gms.permission.AD_ID</code></td>
+  <td>광고 표시를 위해 기기의 광고 ID에 접근합니다(5항).</td>
+</tr>
+</table>
+
+<h2>3. 개인정보의 저장 및 전송</h2>
+<p>
+앱에서 작성한 메모와 설정은 모두 <strong>사용자 기기 내부(앱 전용 저장 공간)</strong>에만 저장됩니다.
+백업 파일은 사용자가 직접 고른 위치에만 저장되며, 앱이 다른 곳으로 보내지 않습니다.
+앱은 자체 서버를 운영하지 않으며, 사용자의 메모나 개인정보를 외부 서버로 전송하거나 제3자와 공유하지 않습니다.
+</p>
+<p>
+앱은 별도의 회원가입/로그인 기능을 제공하지 않습니다. 다만 아래 4항(크래시 리포팅)과 5항(광고)에 적힌 정보는 해당 서비스 제공자에게 전송됩니다.
+</p>
+
+<h2>4. 크래시 리포팅(진단 데이터)</h2>
+<p>
+앱은 오류 발생 시 원인을 파악하기 위해 <strong>Firebase Crashlytics</strong>(Google LLC)를 사용합니다. 앱이 예기치 않게 종료되면
+아래 정보가 자동으로 Google 서버에 전송됩니다.
+</p>
+<table>
+<tr><th>항목</th><th>내용</th></tr>
+<tr><td>수집 항목</td><td>발생 시각, 기기 모델, OS 버전, 앱 버전, 메모리·저장 공간 상태, 오류가 발생한 코드 위치(스택 트레이스), 앱 설치 식별자(Crashlytics 설치 UUID, Firebase 설치 ID)</td></tr>
+<tr><td>목적</td><td>오류 원인 분석과 앱 안정성 개선</td></tr>
+<tr><td>처리자 / 이전 국가</td><td>Google LLC / 미국 등 Google 서버 소재 국가 (오류 발생 시 네트워크를 통해 전송)</td></tr>
+<tr><td>보관 기간</td><td>수집일로부터 90일</td></tr>
+</table>
+<p>
+이 진단 정보에는 사용자의 메모 제목·내용 등이 포함되지 않습니다.
+자세한 처리 방식은 <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase 개인정보처리방침</a>을 참고해 주세요.
+</p>
+
+<h2>5. 광고</h2>
+<p>
+앱 화면에 배너 광고를 표시하기 위해 <strong>카카오 애드핏(Kakao AdFit)</strong> 광고 SDK를 사용합니다. 광고 표시 과정에서
+<strong>광고 ID(Google 광고 ID)</strong>, 기기 모델/OS 버전, 네트워크 정보 등이 광고 제공자(주식회사 카카오)에 전송되며,
+광고 제공 및 광고 효과 측정 목적으로 사용됩니다. 사용자의 메모 내용은 광고 제공자에 전송되지 않습니다.
+</p>
+<p>
+광고 ID는 기기 설정(설정 &gt; Google &gt; 광고, 또는 설정 &gt; 개인정보 보호 &gt; 광고)에서 언제든 재설정하거나 삭제할 수 있으며,
+삭제하면 광고 ID 기반의 맞춤 광고가 제공되지 않습니다. 광고 제공자의 처리 방식은
+<a href="https://www.kakao.com/policy/privacy" target="_blank" rel="noopener">카카오 개인정보처리방침</a>을 참고해 주세요.
+</p>
+
+<h2>6. 위치 정보</h2>
+<p>
+앱은 기기의 위치 권한(GPS 등)을 요청하지 않으며, 위치 정보를 수집하지 않습니다.
+</p>
+
+<h2>7. 데이터 삭제</h2>
+<p>
+앱을 삭제하거나 기기 설정에서 앱 데이터를 삭제하면 기기에 저장된 메모와 설정이 모두 삭제됩니다.
+사용자가 만든 백업 파일은 사용자가 고른 위치에 남아 있으므로 직접 삭제할 수 있습니다.
+</p>
+
+<h2>8. 아동의 개인정보</h2>
+<p>
+본 앱은 만 13세 미만 아동을 대상으로 하지 않으며, 아동으로부터 고의로 개인정보를 수집하지 않습니다.
+</p>
+
+<h2>9. 개인정보처리방침의 변경</h2>
+<p>
+본 방침은 앱 기능 변경 등에 따라 개정될 수 있으며, 변경 시 이 페이지의 "최종 수정일"을 갱신합니다.
+</p>
+
+<h2>10. 문의처</h2>
+<p>
+개인정보처리방침 또는 앱 관련 문의사항은 아래 이메일로 연락해 주세요.<br>
+이메일: <a href="mailto:parkho79@gmail.com">parkho79@gmail.com</a>
+</p>
+</div>
+
+<hr>
+
+<div class="lang-section">
+<h2>English</h2>
+<p>
+"Simple lunar calendar" (Korean name "간편 음력 달력") is an Android calendar app developed by an individual developer (parkho79).
+This policy explains what information the app handles and how.
+</p>
+
+<h2>Permissions Used</h2>
+<table>
+<tr><th>Permission</th><th>Purpose</th></tr>
+<tr><td><code>POST_NOTIFICATIONS</code></td><td>To show the reminders you set on your notes.</td></tr>
+<tr><td><code>SCHEDULE_EXACT_ALARM</code></td><td>To trigger reminders at the exact time you set.</td></tr>
+<tr><td><code>RECEIVE_BOOT_COMPLETED</code></td><td>To re-register pending reminders and widgets after your device restarts.</td></tr>
+<tr><td><code>REQUEST_IGNORE_BATTERY_OPTIMIZATIONS</code></td><td>To ask, only with your consent, to be excluded from battery optimization so reminders are not delayed or missed.</td></tr>
+<tr><td><code>READ_EXTERNAL_STORAGE</code> / <code>WRITE_EXTERNAL_STORAGE</code></td><td>To save and read backup files at the location you choose when you use backup/restore (older Android versions).</td></tr>
+<tr><td><code>INTERNET</code> / <code>ACCESS_NETWORK_STATE</code></td><td>To send crash reports (see Crash Reporting) and show ads (see Advertising). Your notes are never transmitted.</td></tr>
+<tr><td><code>com.google.android.gms.permission.AD_ID</code></td><td>To access the device's advertising ID for showing ads (see Advertising).</td></tr>
+</table>
+
+<h2>Data Storage</h2>
+<p>
+All notes and settings are stored locally on your device in the app's private storage. Backup files are saved only to the
+location you choose and are not sent anywhere by the app. The app does not operate its own backend server and does not
+transmit or share your notes or personal information with any third party, except the information described under Crash
+Reporting and Advertising below, which is sent to those service providers. The app has no login/account system.
+</p>
+
+<h2>Crash Reporting (Diagnostic Data)</h2>
+<p>
+The app uses <strong>Firebase Crashlytics</strong> (Google LLC) to diagnose errors. If the app crashes unexpectedly, the
+following information is automatically sent to Google's servers.
+</p>
+<table>
+<tr><th>Item</th><th>Details</th></tr>
+<tr><td>Data collected</td><td>Timestamp, device model, OS version, app version, memory/storage state, stack trace of where the error occurred, and installation identifiers (Crashlytics installation UUID, Firebase installation ID)</td></tr>
+<tr><td>Purpose</td><td>Diagnosing errors and improving app stability</td></tr>
+<tr><td>Processor / transfer</td><td>Google LLC / the United States and other countries where Google's servers are located (sent over the network when an error occurs)</td></tr>
+<tr><td>Retention</td><td>90 days from collection</td></tr>
+</table>
+<p>
+This diagnostic data does not include your notes. See
+<a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase's Privacy and Security policy</a>
+for details on how this data is handled.
+</p>
+
+<h2>Advertising</h2>
+<p>
+The app shows banner ads using the <strong>Kakao AdFit</strong> ad SDK. To serve ads, the <strong>advertising ID (Google
+Advertising ID)</strong>, device model/OS version and network information are sent to the ad provider (Kakao Corp.) and used
+to deliver ads and measure ad performance. Your notes are never sent to the ad provider.
+</p>
+<p>
+You can reset or delete your advertising ID at any time in your device settings (Settings &gt; Google &gt; Ads, or
+Settings &gt; Privacy &gt; Ads). After deleting it, ads based on the advertising ID are no longer personalised. See
+<a href="https://www.kakao.com/policy/privacy" target="_blank" rel="noopener">Kakao's Privacy Policy</a> for details on how
+the ad provider handles this data.
+</p>
+
+<h2>Location</h2>
+<p>The app does not request device location (GPS) permission and does not collect location data.</p>
+
+<h2>Data Deletion</h2>
+<p>
+Uninstalling the app or clearing its data in your device settings deletes all notes and settings stored on the device.
+Backup files you created remain at the location you chose, and you can delete them yourself.
+</p>
+
+<h2>Children's Privacy</h2>
+<p>This app is not directed at children under 13 and does not knowingly collect personal information from children.</p>
+
+<h2>Changes to This Policy</h2>
+<p>This policy may be updated as the app changes. Any changes will be reflected by updating the "Last updated" date above.</p>
+
+<h2>Contact</h2>
+<p>For questions about this policy or the app, contact: <a href="mailto:parkho79@gmail.com">parkho79@gmail.com</a></p>
+</div>
+
+<hr>
+<footer>간편 음력 달력 &middot; https://parkho79.github.io/phcalendar/privacy/</footer>
+
+</body>
+</html>
