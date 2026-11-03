@@ -29,7 +29,7 @@
 <body>
 
 <h1>D-Day 디데이 위젯 개인정보처리방침 (Privacy Policy)</h1>
-<p class="updated">Last updated / 최종 수정일: 2026-10-29</p>
+<p class="updated">Last updated / 최종 수정일: 2026-11-03</p>
 
 <div class="lang-section">
 <h2>1. 개요</h2>
@@ -59,11 +59,11 @@
 </tr>
 <tr>
   <td><code>INTERNET</code> / <code>ACCESS_NETWORK_STATE</code></td>
-  <td>광고(5항)를 표시하고, 사용자가 고른 글꼴 파일을 내려받기 위해 사용합니다. 이 통신에는 사용자의 디데이 내용이 포함되지 않습니다.</td>
+  <td>크래시 리포트(5항)를 전송하고, 광고(6항)를 표시하고, 사용자가 고른 글꼴 파일을 내려받기 위해 사용합니다. 이 통신에는 사용자의 디데이 내용이 포함되지 않습니다.</td>
 </tr>
 <tr>
   <td><code>com.google.android.gms.permission.AD_ID</code></td>
-  <td>광고 표시를 위해 기기의 광고 ID에 접근합니다(5항).</td>
+  <td>광고 표시를 위해 기기의 광고 ID에 접근합니다(6항).</td>
 </tr>
 </table>
 
@@ -75,7 +75,7 @@
 </p>
 <p>
 앱은 자체 서버를 운영하지 않으며, 회원가입/로그인 기능을 제공하지 않습니다. 사용자의 디데이나 사진을 외부 서버로 전송하거나 제3자와 공유하지 않습니다.
-다만 아래 4항(글꼴 내려받기)과 5항(광고)에 적힌 정보는 해당 서버나 서비스 제공자에게 전송됩니다.
+다만 아래 4항(글꼴 내려받기), 5항(크래시 리포팅), 6항(광고)에 적힌 정보는 해당 서버나 서비스 제공자에게 전송됩니다.
 </p>
 
 <h2>4. 글꼴 내려받기</h2>
@@ -84,7 +84,24 @@
 이때 일반적인 인터넷 통신과 같이 기기의 IP 주소 등 접속 정보가 해당 서버에 전달될 수 있으며, 사용자의 디데이 내용은 전송되지 않습니다.
 </p>
 
-<h2>5. 광고</h2>
+<h2>5. 크래시 리포팅(진단 데이터)</h2>
+<p>
+앱은 오류 발생 시 원인을 파악하기 위해 <strong>Firebase Crashlytics</strong>(Google LLC)를 사용합니다. 앱이 예기치 않게 종료되면
+아래 정보가 자동으로 Google 서버에 전송됩니다.
+</p>
+<table>
+<tr><th>항목</th><th>내용</th></tr>
+<tr><td>수집 항목</td><td>발생 시각, 기기 모델, OS 버전, 앱 버전, 메모리·저장 공간 상태, 오류가 발생한 코드 위치(스택 트레이스), 앱 설치 식별자(Crashlytics 설치 UUID, Firebase 설치 ID)</td></tr>
+<tr><td>목적</td><td>오류 원인 분석과 앱 안정성 개선</td></tr>
+<tr><td>처리자 / 이전 국가</td><td>Google LLC / 미국 등 Google 서버 소재 국가 (오류 발생 시 네트워크를 통해 전송)</td></tr>
+<tr><td>보관 기간</td><td>수집일로부터 90일</td></tr>
+</table>
+<p>
+이 진단 정보에는 사용자의 디데이 제목·메모·사진 등이 포함되지 않습니다.
+자세한 처리 방식은 <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase 개인정보처리방침</a>을 참고해 주세요.
+</p>
+
+<h2>6. 광고</h2>
 <p>
 앱 화면에 배너 광고를 표시하기 위해 <strong>카카오 애드핏(Kakao AdFit)</strong> 광고 SDK를 사용합니다. 광고 표시 과정에서
 <strong>광고 ID(Google 광고 ID)</strong>, 기기 모델/OS 버전, 네트워크 정보 등이 광고 제공자(주식회사 카카오)에 전송되며,
@@ -96,28 +113,28 @@
 <a href="https://www.kakao.com/policy/privacy" target="_blank" rel="noopener">카카오 개인정보처리방침</a>을 참고해 주세요.
 </p>
 
-<h2>6. 위치 정보</h2>
+<h2>7. 위치 정보</h2>
 <p>
 앱은 기기의 위치 권한(GPS 등)을 요청하지 않으며, 위치 정보를 수집하지 않습니다.
 </p>
 
-<h2>7. 데이터 삭제</h2>
+<h2>8. 데이터 삭제</h2>
 <p>
 앱을 삭제하거나 기기 설정에서 앱 데이터를 삭제하면 기기에 저장된 디데이, 사진 사본, 설정이 모두 삭제됩니다.
 사용자가 만든 백업 파일은 사용자가 고른 위치에 남아 있으므로 직접 삭제할 수 있습니다.
 </p>
 
-<h2>8. 아동의 개인정보</h2>
+<h2>9. 아동의 개인정보</h2>
 <p>
 본 앱은 만 13세 미만 아동을 대상으로 하지 않으며, 아동으로부터 고의로 개인정보를 수집하지 않습니다.
 </p>
 
-<h2>9. 개인정보처리방침의 변경</h2>
+<h2>10. 개인정보처리방침의 변경</h2>
 <p>
 본 방침은 앱 기능 변경 등에 따라 개정될 수 있으며, 변경 시 이 페이지의 "최종 수정일"을 갱신합니다.
 </p>
 
-<h2>10. 문의처</h2>
+<h2>11. 문의처</h2>
 <p>
 개인정보처리방침 또는 앱 관련 문의사항은 아래 이메일로 연락해 주세요.<br>
 이메일: <a href="mailto:parkho79@gmail.com">parkho79@gmail.com</a>
@@ -140,7 +157,7 @@ individual developer (parkho79). This policy explains what information the app h
 <tr><td><code>SCHEDULE_EXACT_ALARM</code> / <code>WAKE_LOCK</code></td><td>To trigger reminders at the exact time you set and to update the remaining days on widgets and notifications when the date changes.</td></tr>
 <tr><td><code>RECEIVE_BOOT_COMPLETED</code></td><td>To re-register pending reminders and widgets after your device restarts.</td></tr>
 <tr><td><code>REQUEST_IGNORE_BATTERY_OPTIMIZATIONS</code></td><td>To ask, only with your consent, to be excluded from battery optimization so reminders are not delayed or missed.</td></tr>
-<tr><td><code>INTERNET</code> / <code>ACCESS_NETWORK_STATE</code></td><td>To show ads (see Advertising) and to download font files you choose. Your D-Day content is never transmitted.</td></tr>
+<tr><td><code>INTERNET</code> / <code>ACCESS_NETWORK_STATE</code></td><td>To send crash reports (see Crash Reporting), show ads (see Advertising) and download font files you choose. Your D-Day content is never transmitted.</td></tr>
 <tr><td><code>com.google.android.gms.permission.AD_ID</code></td><td>To access the device's advertising ID for showing ads (see Advertising).</td></tr>
 </table>
 
@@ -152,7 +169,7 @@ uploaded. Backup files are saved only to the location you choose and are not sen
 </p>
 <p>
 The app does not operate its own backend server and has no login/account system. It does not transmit or share your D-Days
-or photos with any third party, except the information described under Font Downloads and Advertising below.
+or photos with any third party, except the information described under Font Downloads, Crash Reporting and Advertising below.
 </p>
 
 <h2>Font Downloads</h2>
@@ -160,6 +177,24 @@ or photos with any third party, except the information described under Font Down
 When you choose a font, the font file is downloaded from the developer's blog (parkho79.tistory.com, hosted on Kakao Corp.'s
 Tistory service). As with any internet request, connection information such as your device's IP address may be visible to
 that server. Your D-Day content is never sent.
+</p>
+
+<h2>Crash Reporting (Diagnostic Data)</h2>
+<p>
+The app uses <strong>Firebase Crashlytics</strong> (Google LLC) to diagnose errors. If the app crashes unexpectedly, the
+following information is automatically sent to Google's servers.
+</p>
+<table>
+<tr><th>Item</th><th>Details</th></tr>
+<tr><td>Data collected</td><td>Timestamp, device model, OS version, app version, memory/storage state, stack trace of where the error occurred, and installation identifiers (Crashlytics installation UUID, Firebase installation ID)</td></tr>
+<tr><td>Purpose</td><td>Diagnosing errors and improving app stability</td></tr>
+<tr><td>Processor / transfer</td><td>Google LLC / the United States and other countries where Google's servers are located (sent over the network when an error occurs)</td></tr>
+<tr><td>Retention</td><td>90 days from collection</td></tr>
+</table>
+<p>
+This diagnostic data does not include your D-Day titles, notes or photos. See
+<a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase's Privacy and Security policy</a>
+for details on how this data is handled.
 </p>
 
 <h2>Advertising</h2>
