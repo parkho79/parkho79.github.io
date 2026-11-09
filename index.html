@@ -4,33 +4,106 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>parkho79 Apps</title>
+<meta name="description" content="parkho79가 만든 Android 앱 — 달력, 음력, 디데이 위젯. Android apps by parkho79: calendar, lunar calendar and D-Day widgets.">
 <style>
+  :root {
+    --bg: #ffffff;
+    --text: #1f2328;
+    --muted: #656d76;
+    --card: #f6f8fa;
+    --border: #d0d7de;
+    --link: #0b57d0;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0d1117;
+      --text: #e6edf3;
+      --muted: #9198a1;
+      --card: #161b22;
+      --border: #30363d;
+      --link: #7cacf8;
+    }
+  }
+  * { box-sizing: border-box; }
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans KR", sans-serif;
-    line-height: 1.7;
+    line-height: 1.6;
     max-width: 760px;
     margin: 0 auto;
-    padding: 32px 20px 80px;
-    color: #222;
-    background: #fff;
+    padding: 32px 16px 64px;
+    color: var(--text);
+    background: var(--bg);
   }
-  h1 { font-size: 1.6em; margin-bottom: 1em; }
-  ul { padding-left: 1.2em; }
-  li { margin: 0.6em 0; }
-  footer { color: #888; font-size: 0.85em; margin-top: 3em; }
+  a { color: var(--link); }
+  h1 { font-size: 1.7em; margin: 0 0 0.2em; }
+  .lead { color: var(--muted); margin: 0 0 2em; }
+  h2 { font-size: 1.15em; margin: 2.2em 0 0.8em; }
+  .apps { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+  .app {
+    display: flex; gap: 16px; align-items: flex-start;
+    padding: 16px; border: 1px solid var(--border); border-radius: 12px; background: var(--card);
+  }
+  .app img { width: 64px; height: 64px; border-radius: 14px; flex-shrink: 0; }
+  .app h3 { margin: 0; font-size: 1.05em; }
+  .app .en { color: var(--muted); font-size: 0.9em; margin: 0 0 0.4em; }
+  .app p { margin: 0.2em 0; }
+  .links { margin-top: 0.5em; font-size: 0.92em; display: flex; flex-wrap: wrap; gap: 4px 14px; }
+  footer { color: var(--muted); font-size: 0.88em; margin-top: 3em; border-top: 1px solid var(--border); padding-top: 1em; }
 </style>
 </head>
 <body>
 
 <h1>parkho79 Apps</h1>
-<p>개인정보처리방침 / Privacy Policy</p>
-<ul>
-  <li><a href="phcalendar/privacy/">간편 음력 달력 (Simple lunar calendar)</a></li>
-  <li><a href="phdday/privacy/">D-Day 디데이 위젯 (D-Day Countdown)</a></li>
-  <li><a href="mycalendar/privacy/">My Calendar</a></li>
+<p class="lead">개인 개발자 parkho79가 만든 Android 앱입니다.<br>Android apps made by independent developer parkho79.</p>
+
+<h2>앱 / Apps</h2>
+<ul class="apps">
+  <li class="app">
+    <img src="assets/mycalendar.png" alt="My Calendar icon">
+    <div>
+      <h3>음력 달력 위젯 - 공휴일 캘린더 My Calendar</h3>
+      <p class="en">My Calendar: Widget &amp; Holidays</p>
+      <p>음력·공휴일이 한눈에 보이는 달력과 일정, 큰 글씨, 홈 화면 위젯.</p>
+      <p>Calendar &amp; planner with public holidays, adjustable large text and month widget.</p>
+      <div class="links">
+        <a href="https://play.google.com/store/apps/details?id=com.parkho.mycalendar">Google Play</a>
+        <a href="mycalendar/privacy/">개인정보처리방침 / Privacy Policy</a>
+      </div>
+    </div>
+  </li>
+  <li class="app">
+    <img src="assets/phcalendar.png" alt="Simple lunar calendar icon">
+    <div>
+      <h3>간편 음력 달력</h3>
+      <p class="en">Simple lunar calendar</p>
+      <p>양력과 음력을 함께 보는 간단한 달력.</p>
+      <p>A simple calendar showing solar and lunar dates together.</p>
+      <div class="links">
+        <a href="https://play.google.com/store/apps/details?id=com.parkho.calendar">Google Play</a>
+        <a href="phcalendar/privacy/">개인정보처리방침 / Privacy Policy</a>
+      </div>
+    </div>
+  </li>
+  <li class="app">
+    <img src="assets/phdday.png" alt="D-Day Countdown icon">
+    <div>
+      <h3>D-Day 디데이 위젯 - 수능·기념일 계산기</h3>
+      <p class="en">D-Day Countdown: Days Until</p>
+      <p>기념일·시험까지 남은 날을 세어 주는 디데이 위젯.</p>
+      <p>Count the days until anniversaries, exams and other events.</p>
+      <div class="links">
+        <a href="https://play.google.com/store/apps/details?id=com.parkho.dday">Google Play</a>
+        <a href="phdday/privacy/">개인정보처리방침 / Privacy Policy</a>
+      </div>
+    </div>
+  </li>
 </ul>
 
-<footer>Contact: <a href="mailto:parkho79@gmail.com">parkho79@gmail.com</a></footer>
+<h2>문의 / Contact</h2>
+<p>앱 사용 중 문의나 오류 신고는 이메일로 보내 주세요.<br>For questions or bug reports, please email:
+  <a href="mailto:parkho79@gmail.com">parkho79@gmail.com</a></p>
+
+<footer>© parkho79</footer>
 
 </body>
 </html>

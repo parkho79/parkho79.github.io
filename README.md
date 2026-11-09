@@ -13,6 +13,11 @@ parkho79 앱들의 웹 페이지 (GitHub Pages: https://parkho79.github.io/)
 - 예전 주소 https://parkho79.github.io/MyCalendarIndex/ 는 이 저장소의 My Calendar 방침으로 넘겨 주는 페이지로 남긴다.
   (`MyCalendarIndex/` 폴더를 이 저장소에 만들지 않는다)
 
+## 첫 페이지
+
+- `index.html`: Play 개발자 프로필의 웹사이트(판매자 상태 선언 뒤 EU 사용자에게도 공개)라 앱 소개·Play 링크·방침·문의를 한국어·영어로 둔다.
+  아이콘은 `assets/`(앱 런처 아이콘 192px). 주소·전화번호는 넣지 않는다(판매자 정보는 Play가 따로 보여 준다).
+
 ## 앱 공유 링크
 
 | 앱 | 공유 링크 (메신저 미리보기용) |
