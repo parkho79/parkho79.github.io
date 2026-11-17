@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>D-Day 디데이 위젯 - 기념일 계산기</title>
+<meta name="description" content="수능, 커플 1000일, 아기 개월수, 음력 생일까지. 위젯·상단바·알림으로 남은 날을 한눈에">
+<link rel="canonical" href="https://parkho79.github.io/phdday/">
+<link rel="alternate" hreflang="ko" href="https://parkho79.github.io/phdday/"><link rel="alternate" hreflang="en" href="https://parkho79.github.io/phdday/en/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="D-Day 디데이 위젯 - 기념일 계산기">
+<meta property="og:description" content="수능, 커플 1000일, 아기 개월수, 음력 생일까지. 위젯·상단바·알림으로 남은 날을 한눈에">
+<meta property="og:image" content="https://parkho79.github.io/assets/phdday.png">
+<meta property="og:url" content="https://parkho79.github.io/phdday/">
+<!-- 이 파일은 tools/build_site.py 로 만든다. 직접 고치지 말고 스크립트를 고쳐 다시 만든다 -->
+<style>
+:root{--bg:#ffffff;--fg:#1d2033;--muted:#5d6278;--line:#e2e4ee;--accent:#3f51b5;--on-accent:#ffffff;--chip:#f3f4f8}
+@media (prefers-color-scheme:dark){:root{--bg:#14151c;--fg:#e8e9f1;--muted:#a3a7bb;--line:#2c2f3d;--accent:#8c9eff;--on-accent:#14151c;--chip:#1e2029;color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans KR",sans-serif;font-size:16px;line-height:1.65}
+.wrap{max-width:880px;margin:0 auto;padding:32px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+a{color:var(--accent)}
+h1,h2,h3,h4{margin:0;text-wrap:balance;line-height:1.35}
+p{margin:0}
+.muted{color:var(--muted)}
+.top{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:32px;font-size:15px}
+.top a{color:var(--muted);text-decoration:none}
+.top a:hover{color:var(--fg)}
+.top .home{font-weight:700;color:var(--fg)}
+.icon{width:64px;height:64px;border-radius:16px;display:block}
+.btns{display:flex;gap:8px;flex-wrap:wrap}
+.btn{font-size:15px;padding:8px 16px;border-radius:8px;text-decoration:none;border:1px solid var(--line);color:var(--fg);background:var(--bg)}
+.btn.pri{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.btn:hover{border-color:var(--accent)}
+.btn:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.foot{border-top:1px solid var(--line);padding-top:16px;margin-top:48px;font-size:15px;color:var(--muted);display:flex;gap:8px 20px;flex-wrap:wrap}
+.foot a{color:var(--muted)}
+/* 홈: 앱을 한 줄씩 */
+.home-head{display:flex;flex-direction:column;gap:6px}
+.home-head h1{font-size:28px}
+.list{display:flex;flex-direction:column;margin-top:24px}
+.row{display:grid;grid-template-columns:64px minmax(0,1fr);gap:16px;padding:24px 0;border-top:1px solid var(--line);align-items:start}
+.row:last-child{border-bottom:1px solid var(--line)}
+.row>div{display:flex;flex-direction:column;gap:8px;min-width:0}
+.row h2{font-size:20px}
+.row h2 a{color:inherit;text-decoration:none}
+/* 앱 페이지 */
+.app-head{display:grid;grid-template-columns:88px minmax(0,1fr);gap:20px;align-items:center}
+.app-head .icon{width:88px;height:88px;border-radius:22px}
+.app-head>div{display:flex;flex-direction:column;gap:8px;min-width:0}
+.app-head h1{font-size:28px}
+.intro{margin-top:24px;max-width:65ch}
+.shots{display:flex;gap:12px;overflow-x:auto;margin-top:28px;padding-bottom:8px;scroll-snap-type:x mandatory}
+.shots img{width:200px;height:auto;aspect-ratio:9/16;flex:none;border-radius:12px;scroll-snap-align:start}
+.sec{margin-top:40px;display:flex;flex-direction:column;gap:16px}
+.sec>h2{font-size:20px}
+.feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px 32px}
+.feat h3{font-size:16px;margin-bottom:4px}
+.feat ul{margin:0;padding-left:18px;color:var(--muted)}
+@media (max-width:480px){.shots img{width:160px}.app-head{grid-template-columns:64px minmax(0,1fr)}.app-head .icon{width:64px;height:64px;border-radius:16px}.app-head h1{font-size:24px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top"><a class="home" href="../">parkho79 Apps</a><a href="en/" hreflang="en">English</a></header>
+<div class="app-head"><img class="icon" src="../assets/phdday.png" alt="" width="88" height="88">
+  <div><h1>D-Day 디데이 위젯</h1><p class="muted">수능, 커플 1000일, 아기 개월수, 음력 생일까지. 위젯·상단바·알림으로 남은 날을 한눈에</p>
+    <div class="btns"><a class="btn pri" href="https://play.google.com/store/apps/details?id=com.parkho.dday&amp;hl=ko">Google Play</a></div></div></div>
+<p class="intro">기다리는 날까지 남은 날과 함께한 날을 세어 주는 심플한 디데이·기념일 계산기입니다. 수능 디데이, 커플 100일·1000일, 아기 개월수, 음력 생일, 월급날까지 홈 화면 위젯과 상단바에서 바로 확인하세요.</p>
+<div class="shots" aria-label="스크린샷"><img src="img/ko-1.jpg" alt="스크린샷 1" width="540" height="960" loading="lazy"><img src="img/ko-2.jpg" alt="스크린샷 2" width="540" height="960" loading="lazy"><img src="img/ko-3.jpg" alt="스크린샷 3" width="540" height="960" loading="lazy"><img src="img/ko-4.jpg" alt="스크린샷 4" width="540" height="960" loading="lazy"><img src="img/ko-5.jpg" alt="스크린샷 5" width="540" height="960" loading="lazy"></div>
+<section class="sec"><h2>주요 기능</h2><div class="feat"><div><h3>8가지 날짜 계산</h3><ul><li>디데이, 1일부터 세는 기념일</li><li>아기 개월수, 1년 2개월 3일 같은 연월일</li><li>매년·매월·매주 반복, 음력 생일 반복</li></ul></div><div><h3>홈 화면 위젯 3종</h3><ul><li>2x1·4x1·리스트(4x2) 위젯</li><li>미리보기를 보며 배경·제목·숫자 색 바꾸기</li><li>투명도 조절, 사진 배경 위젯</li></ul></div><div><h3>상단바 고정과 알림</h3><ul><li>알림창에 디데이 고정, 잠금화면에서도 확인</li><li>당일, 1·2·5·7·10일 전 알림</li></ul></div><div><h3>다가올 기념일</h3><ul><li>100일, 200일 … 1주년, 2주년을 한 번에</li><li>월별 달력에서 디데이와 공휴일 함께 보기</li></ul></div><div><h3>앱 테마</h3><ul><li>차분한·파스텔·미드나잇·로맨틱 4가지 스타일</li><li>핑크·라벤더·민트·로즈골드 등 색상</li><li>사진 배경, 라이트·다크 모드</li></ul></div><div><h3>백업과 복원</h3><ul><li>디데이와 사진을 파일 하나로 저장</li><li>새 폰에서 그대로 복원</li></ul></div></div></section>
+<footer class="foot"><a href="privacy/">개인정보처리방침</a><span>문의 <a href="mailto:parkho79@gmail.com">parkho79@gmail.com</a></span><span>© parkho79</span></footer>
+</div>
+</body>
+</html>

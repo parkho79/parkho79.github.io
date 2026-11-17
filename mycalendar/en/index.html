@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>My Calendar: Widget &amp; Holidays</title>
+<meta name="description" content="Calendar &amp; planner with public holidays, adjustable large text and month widget">
+<link rel="canonical" href="https://parkho79.github.io/mycalendar/en/">
+<link rel="alternate" hreflang="ko" href="https://parkho79.github.io/mycalendar/"><link rel="alternate" hreflang="en" href="https://parkho79.github.io/mycalendar/en/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="My Calendar: Widget &amp; Holidays">
+<meta property="og:description" content="Calendar &amp; planner with public holidays, adjustable large text and month widget">
+<meta property="og:image" content="https://parkho79.github.io/assets/mycalendar.png">
+<meta property="og:url" content="https://parkho79.github.io/mycalendar/en/">
+<!-- 이 파일은 tools/build_site.py 로 만든다. 직접 고치지 말고 스크립트를 고쳐 다시 만든다 -->
+<style>
+:root{--bg:#ffffff;--fg:#1d2033;--muted:#5d6278;--line:#e2e4ee;--accent:#3f51b5;--on-accent:#ffffff;--chip:#f3f4f8}
+@media (prefers-color-scheme:dark){:root{--bg:#14151c;--fg:#e8e9f1;--muted:#a3a7bb;--line:#2c2f3d;--accent:#8c9eff;--on-accent:#14151c;--chip:#1e2029;color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans KR",sans-serif;font-size:16px;line-height:1.65}
+.wrap{max-width:880px;margin:0 auto;padding:32px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+a{color:var(--accent)}
+h1,h2,h3,h4{margin:0;text-wrap:balance;line-height:1.35}
+p{margin:0}
+.muted{color:var(--muted)}
+.top{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:32px;font-size:15px}
+.top a{color:var(--muted);text-decoration:none}
+.top a:hover{color:var(--fg)}
+.top .home{font-weight:700;color:var(--fg)}
+.icon{width:64px;height:64px;border-radius:16px;display:block}
+.btns{display:flex;gap:8px;flex-wrap:wrap}
+.btn{font-size:15px;padding:8px 16px;border-radius:8px;text-decoration:none;border:1px solid var(--line);color:var(--fg);background:var(--bg)}
+.btn.pri{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.btn:hover{border-color:var(--accent)}
+.btn:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.foot{border-top:1px solid var(--line);padding-top:16px;margin-top:48px;font-size:15px;color:var(--muted);display:flex;gap:8px 20px;flex-wrap:wrap}
+.foot a{color:var(--muted)}
+/* 홈: 앱을 한 줄씩 */
+.home-head{display:flex;flex-direction:column;gap:6px}
+.home-head h1{font-size:28px}
+.list{display:flex;flex-direction:column;margin-top:24px}
+.row{display:grid;grid-template-columns:64px minmax(0,1fr);gap:16px;padding:24px 0;border-top:1px solid var(--line);align-items:start}
+.row:last-child{border-bottom:1px solid var(--line)}
+.row>div{display:flex;flex-direction:column;gap:8px;min-width:0}
+.row h2{font-size:20px}
+.row h2 a{color:inherit;text-decoration:none}
+/* 앱 페이지 */
+.app-head{display:grid;grid-template-columns:88px minmax(0,1fr);gap:20px;align-items:center}
+.app-head .icon{width:88px;height:88px;border-radius:22px}
+.app-head>div{display:flex;flex-direction:column;gap:8px;min-width:0}
+.app-head h1{font-size:28px}
+.intro{margin-top:24px;max-width:65ch}
+.shots{display:flex;gap:12px;overflow-x:auto;margin-top:28px;padding-bottom:8px;scroll-snap-type:x mandatory}
+.shots img{width:200px;height:auto;aspect-ratio:9/16;flex:none;border-radius:12px;scroll-snap-align:start}
+.sec{margin-top:40px;display:flex;flex-direction:column;gap:16px}
+.sec>h2{font-size:20px}
+.feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px 32px}
+.feat h3{font-size:16px;margin-bottom:4px}
+.feat ul{margin:0;padding-left:18px;color:var(--muted)}
+@media (max-width:480px){.shots img{width:160px}.app-head{grid-template-columns:64px minmax(0,1fr)}.app-head .icon{width:64px;height:64px;border-radius:16px}.app-head h1{font-size:24px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top"><a class="home" href="../../en/">parkho79 Apps</a><a href="../" hreflang="ko">한국어</a></header>
+<div class="app-head"><img class="icon" src="../../assets/mycalendar.png" alt="" width="88" height="88">
+  <div><h1>My Calendar</h1><p class="muted">Calendar &amp; planner with public holidays, adjustable large text and month widget</p>
+    <div class="btns"><a class="btn pri" href="https://play.google.com/store/apps/details?id=com.parkho.mycalendar&amp;hl=en">Google Play</a></div></div></div>
+<p class="intro">A clean, easy-to-read calendar, planner and calendar widget that shows your schedule together with public holidays. Dates and events can be shown in large text, and the events already on your phone appear automatically.</p>
+<div class="shots" aria-label="Screenshots"><img src="../img/en-1.jpg" alt="Screenshots 1" width="540" height="960" loading="lazy"><img src="../img/en-2.jpg" alt="Screenshots 2" width="540" height="960" loading="lazy"><img src="../img/en-3.jpg" alt="Screenshots 3" width="540" height="960" loading="lazy"><img src="../img/en-4.jpg" alt="Screenshots 4" width="540" height="960" loading="lazy"><img src="../img/en-5.jpg" alt="Screenshots 5" width="540" height="960" loading="lazy"></div>
+<section class="sec"><h2>Features</h2><div class="feat"><div><h3>Public holidays</h3><ul><li>United States and many more countries</li><li>Show holidays from several countries together</li><li>Holiday data updated automatically</li></ul></div><div><h3>Large, easy-to-read text</h3><ul><li>Set date and event text sizes separately</li><li>See every change in a live preview</li></ul></div><div><h3>Lunar dates</h3><ul><li>Lunar date beside or under each day</li><li>Korean, Chinese and Vietnamese lunar calendars</li></ul></div><div><h3>Four views</h3><ul><li>Year, month, week and day views</li><li>Multi-day events drawn as continuous bars</li></ul></div><div><h3>Home screen widget</h3><ul><li>Month widget with events and holidays</li><li>Change months or jump to today on the widget</li></ul></div><div><h3>Events and reminders</h3><ul><li>All-day and repeating events</li><li>Drag to move, reminders and search</li></ul></div></div></section>
+<footer class="foot"><a href="../privacy/">Privacy Policy</a><span>Contact <a href="mailto:parkho79@gmail.com">parkho79@gmail.com</a></span><span>© parkho79</span></footer>
+</div>
+</body>
+</html>

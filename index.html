@@ -2,108 +2,86 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>parkho79 Apps</title>
-<meta name="description" content="parkho79가 만든 Android 앱 — 달력, 음력, 디데이 위젯. Android apps by parkho79: calendar, lunar calendar and D-Day widgets.">
+<meta name="description" content="가입 없이 바로 쓰는 안드로이드 달력·디데이 앱">
+<link rel="canonical" href="https://parkho79.github.io/">
+<link rel="alternate" hreflang="ko" href="https://parkho79.github.io/"><link rel="alternate" hreflang="en" href="https://parkho79.github.io/en/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="parkho79 Apps">
+<meta property="og:description" content="가입 없이 바로 쓰는 안드로이드 달력·디데이 앱">
+<meta property="og:image" content="https://parkho79.github.io/assets/phcalendar.png">
+<meta property="og:url" content="https://parkho79.github.io/">
+<!-- 이 파일은 tools/build_site.py 로 만든다. 직접 고치지 말고 스크립트를 고쳐 다시 만든다 -->
 <style>
-  :root {
-    --bg: #ffffff;
-    --text: #1f2328;
-    --muted: #656d76;
-    --card: #f6f8fa;
-    --border: #d0d7de;
-    --link: #0b57d0;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #0d1117;
-      --text: #e6edf3;
-      --muted: #9198a1;
-      --card: #161b22;
-      --border: #30363d;
-      --link: #7cacf8;
-    }
-  }
-  * { box-sizing: border-box; }
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans KR", sans-serif;
-    line-height: 1.6;
-    max-width: 760px;
-    margin: 0 auto;
-    padding: 32px 16px 64px;
-    color: var(--text);
-    background: var(--bg);
-  }
-  a { color: var(--link); }
-  h1 { font-size: 1.7em; margin: 0 0 0.2em; }
-  .lead { color: var(--muted); margin: 0 0 2em; }
-  h2 { font-size: 1.15em; margin: 2.2em 0 0.8em; }
-  .apps { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
-  .app {
-    display: flex; gap: 16px; align-items: flex-start;
-    padding: 16px; border: 1px solid var(--border); border-radius: 12px; background: var(--card);
-  }
-  .app img { width: 64px; height: 64px; border-radius: 14px; flex-shrink: 0; }
-  .app h3 { margin: 0; font-size: 1.05em; }
-  .app .en { color: var(--muted); font-size: 0.9em; margin: 0 0 0.4em; }
-  .app p { margin: 0.2em 0; }
-  .links { margin-top: 0.5em; font-size: 0.92em; display: flex; flex-wrap: wrap; gap: 4px 14px; }
-  footer { color: var(--muted); font-size: 0.88em; margin-top: 3em; border-top: 1px solid var(--border); padding-top: 1em; }
+:root{--bg:#ffffff;--fg:#1d2033;--muted:#5d6278;--line:#e2e4ee;--accent:#3f51b5;--on-accent:#ffffff;--chip:#f3f4f8}
+@media (prefers-color-scheme:dark){:root{--bg:#14151c;--fg:#e8e9f1;--muted:#a3a7bb;--line:#2c2f3d;--accent:#8c9eff;--on-accent:#14151c;--chip:#1e2029;color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans KR",sans-serif;font-size:16px;line-height:1.65}
+.wrap{max-width:880px;margin:0 auto;padding:32px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+a{color:var(--accent)}
+h1,h2,h3,h4{margin:0;text-wrap:balance;line-height:1.35}
+p{margin:0}
+.muted{color:var(--muted)}
+.top{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:32px;font-size:15px}
+.top a{color:var(--muted);text-decoration:none}
+.top a:hover{color:var(--fg)}
+.top .home{font-weight:700;color:var(--fg)}
+.icon{width:64px;height:64px;border-radius:16px;display:block}
+.btns{display:flex;gap:8px;flex-wrap:wrap}
+.btn{font-size:15px;padding:8px 16px;border-radius:8px;text-decoration:none;border:1px solid var(--line);color:var(--fg);background:var(--bg)}
+.btn.pri{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.btn:hover{border-color:var(--accent)}
+.btn:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.foot{border-top:1px solid var(--line);padding-top:16px;margin-top:48px;font-size:15px;color:var(--muted);display:flex;gap:8px 20px;flex-wrap:wrap}
+.foot a{color:var(--muted)}
+/* 홈: 앱을 한 줄씩 */
+.home-head{display:flex;flex-direction:column;gap:6px}
+.home-head h1{font-size:28px}
+.list{display:flex;flex-direction:column;margin-top:24px}
+.row{display:grid;grid-template-columns:64px minmax(0,1fr);gap:16px;padding:24px 0;border-top:1px solid var(--line);align-items:start}
+.row:last-child{border-bottom:1px solid var(--line)}
+.row>div{display:flex;flex-direction:column;gap:8px;min-width:0}
+.row h2{font-size:20px}
+.row h2 a{color:inherit;text-decoration:none}
+/* 앱 페이지 */
+.app-head{display:grid;grid-template-columns:88px minmax(0,1fr);gap:20px;align-items:center}
+.app-head .icon{width:88px;height:88px;border-radius:22px}
+.app-head>div{display:flex;flex-direction:column;gap:8px;min-width:0}
+.app-head h1{font-size:28px}
+.intro{margin-top:24px;max-width:65ch}
+.shots{display:flex;gap:12px;overflow-x:auto;margin-top:28px;padding-bottom:8px;scroll-snap-type:x mandatory}
+.shots img{width:200px;height:auto;aspect-ratio:9/16;flex:none;border-radius:12px;scroll-snap-align:start}
+.sec{margin-top:40px;display:flex;flex-direction:column;gap:16px}
+.sec>h2{font-size:20px}
+.feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px 32px}
+.feat h3{font-size:16px;margin-bottom:4px}
+.feat ul{margin:0;padding-left:18px;color:var(--muted)}
+@media (max-width:480px){.shots img{width:160px}.app-head{grid-template-columns:64px minmax(0,1fr)}.app-head .icon{width:64px;height:64px;border-radius:16px}.app-head h1{font-size:24px}}
 </style>
 </head>
 <body>
-
-<h1>parkho79 Apps</h1>
-<p class="lead">개인 개발자 parkho79가 만든 Android 앱입니다.<br>Android apps made by independent developer parkho79.</p>
-
-<h2>앱 / Apps</h2>
-<ul class="apps">
-  <li class="app">
-    <img src="assets/mycalendar.png" alt="My Calendar icon">
-    <div>
-      <h3>음력 달력 위젯 - 공휴일 캘린더 My Calendar</h3>
-      <p class="en">My Calendar: Widget &amp; Holidays</p>
-      <p>음력·공휴일이 한눈에 보이는 달력과 일정, 큰 글씨, 홈 화면 위젯.</p>
-      <p>Calendar &amp; planner with public holidays, adjustable large text and month widget.</p>
-      <div class="links">
-        <a href="https://play.google.com/store/apps/details?id=com.parkho.mycalendar">Google Play</a>
-        <a href="mycalendar/privacy/">개인정보처리방침 / Privacy Policy</a>
-      </div>
-    </div>
-  </li>
-  <li class="app">
-    <img src="assets/phcalendar.png" alt="Simple lunar calendar icon">
-    <div>
-      <h3>간편 음력 달력</h3>
-      <p class="en">Simple lunar calendar</p>
-      <p>양력과 음력을 함께 보는 간단한 달력.</p>
-      <p>A simple calendar showing solar and lunar dates together.</p>
-      <div class="links">
-        <a href="https://play.google.com/store/apps/details?id=com.parkho.calendar">Google Play</a>
-        <a href="phcalendar/privacy/">개인정보처리방침 / Privacy Policy</a>
-      </div>
-    </div>
-  </li>
-  <li class="app">
-    <img src="assets/phdday.png" alt="D-Day Countdown icon">
-    <div>
-      <h3>D-Day 디데이 위젯 - 수능·기념일 계산기</h3>
-      <p class="en">D-Day Countdown: Days Until</p>
-      <p>기념일·시험까지 남은 날을 세어 주는 디데이 위젯.</p>
-      <p>Count the days until anniversaries, exams and other events.</p>
-      <div class="links">
-        <a href="https://play.google.com/store/apps/details?id=com.parkho.dday">Google Play</a>
-        <a href="phdday/privacy/">개인정보처리방침 / Privacy Policy</a>
-      </div>
-    </div>
-  </li>
-</ul>
-
-<h2>문의 / Contact</h2>
-<p>앱 사용 중 문의나 오류 신고는 이메일로 보내 주세요.<br>For questions or bug reports, please email:
-  <a href="mailto:parkho79@gmail.com">parkho79@gmail.com</a></p>
-
-<footer>© parkho79</footer>
-
+<div class="wrap">
+<header class="top"><span></span><a href="en/" hreflang="en">English</a></header>
+<div class="home-head"><h1>parkho79 Apps</h1><p class="muted">가입 없이 바로 쓰는 안드로이드 달력·디데이 앱</p></div>
+<div class="list">
+<div class="row"><img class="icon" src="assets/phcalendar.png" alt="" width="64" height="64">
+  <div><h2><a href="phcalendar/">간편 음력 달력</a></h2>
+    <p class="muted">음력·공휴일·24절기를 한눈에 보는 달력, 음력 생일 반복 알림과 홈 화면 위젯</p>
+    <div class="btns"><a class="btn pri" href="phcalendar/">자세히 보기</a><a class="btn" href="https://play.google.com/store/apps/details?id=com.parkho.calendar&amp;hl=ko">Google Play</a><a class="btn" href="https://m.onestore.co.kr/v2/ko-kr/app/0000773058">원스토어</a></div>
+  </div></div>
+<div class="row"><img class="icon" src="assets/phdday.png" alt="" width="64" height="64">
+  <div><h2><a href="phdday/">D-Day 디데이 위젯</a></h2>
+    <p class="muted">수능, 커플 1000일, 아기 개월수, 음력 생일까지. 위젯·상단바·알림으로 남은 날을 한눈에</p>
+    <div class="btns"><a class="btn pri" href="phdday/">자세히 보기</a><a class="btn" href="https://play.google.com/store/apps/details?id=com.parkho.dday&amp;hl=ko">Google Play</a></div>
+  </div></div>
+<div class="row"><img class="icon" src="assets/mycalendar.png" alt="" width="64" height="64">
+  <div><h2><a href="mycalendar/">My Calendar</a></h2>
+    <p class="muted">음력·공휴일이 한눈에 보이는 깔끔한 달력 &amp; 일정 캘린더, 큰 글씨 조절, 홈 화면 위젯</p>
+    <div class="btns"><a class="btn pri" href="mycalendar/">자세히 보기</a><a class="btn" href="https://play.google.com/store/apps/details?id=com.parkho.mycalendar&amp;hl=ko">Google Play</a></div>
+  </div></div>
+</div>
+<footer class="foot"><span>문의 <a href="mailto:parkho79@gmail.com">parkho79@gmail.com</a></span><span>© parkho79</span></footer>
+</div>
 </body>
 </html>

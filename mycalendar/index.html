@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>음력 달력 위젯 - 공휴일 캘린더 My Calendar</title>
+<meta name="description" content="음력·공휴일이 한눈에 보이는 깔끔한 달력 &amp; 일정 캘린더, 큰 글씨 조절, 홈 화면 위젯">
+<link rel="canonical" href="https://parkho79.github.io/mycalendar/">
+<link rel="alternate" hreflang="ko" href="https://parkho79.github.io/mycalendar/"><link rel="alternate" hreflang="en" href="https://parkho79.github.io/mycalendar/en/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="음력 달력 위젯 - 공휴일 캘린더 My Calendar">
+<meta property="og:description" content="음력·공휴일이 한눈에 보이는 깔끔한 달력 &amp; 일정 캘린더, 큰 글씨 조절, 홈 화면 위젯">
+<meta property="og:image" content="https://parkho79.github.io/assets/mycalendar.png">
+<meta property="og:url" content="https://parkho79.github.io/mycalendar/">
+<!-- 이 파일은 tools/build_site.py 로 만든다. 직접 고치지 말고 스크립트를 고쳐 다시 만든다 -->
+<style>
+:root{--bg:#ffffff;--fg:#1d2033;--muted:#5d6278;--line:#e2e4ee;--accent:#3f51b5;--on-accent:#ffffff;--chip:#f3f4f8}
+@media (prefers-color-scheme:dark){:root{--bg:#14151c;--fg:#e8e9f1;--muted:#a3a7bb;--line:#2c2f3d;--accent:#8c9eff;--on-accent:#14151c;--chip:#1e2029;color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans KR",sans-serif;font-size:16px;line-height:1.65}
+.wrap{max-width:880px;margin:0 auto;padding:32px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+a{color:var(--accent)}
+h1,h2,h3,h4{margin:0;text-wrap:balance;line-height:1.35}
+p{margin:0}
+.muted{color:var(--muted)}
+.top{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:32px;font-size:15px}
+.top a{color:var(--muted);text-decoration:none}
+.top a:hover{color:var(--fg)}
+.top .home{font-weight:700;color:var(--fg)}
+.icon{width:64px;height:64px;border-radius:16px;display:block}
+.btns{display:flex;gap:8px;flex-wrap:wrap}
+.btn{font-size:15px;padding:8px 16px;border-radius:8px;text-decoration:none;border:1px solid var(--line);color:var(--fg);background:var(--bg)}
+.btn.pri{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.btn:hover{border-color:var(--accent)}
+.btn:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.foot{border-top:1px solid var(--line);padding-top:16px;margin-top:48px;font-size:15px;color:var(--muted);display:flex;gap:8px 20px;flex-wrap:wrap}
+.foot a{color:var(--muted)}
+/* 홈: 앱을 한 줄씩 */
+.home-head{display:flex;flex-direction:column;gap:6px}
+.home-head h1{font-size:28px}
+.list{display:flex;flex-direction:column;margin-top:24px}
+.row{display:grid;grid-template-columns:64px minmax(0,1fr);gap:16px;padding:24px 0;border-top:1px solid var(--line);align-items:start}
+.row:last-child{border-bottom:1px solid var(--line)}
+.row>div{display:flex;flex-direction:column;gap:8px;min-width:0}
+.row h2{font-size:20px}
+.row h2 a{color:inherit;text-decoration:none}
+/* 앱 페이지 */
+.app-head{display:grid;grid-template-columns:88px minmax(0,1fr);gap:20px;align-items:center}
+.app-head .icon{width:88px;height:88px;border-radius:22px}
+.app-head>div{display:flex;flex-direction:column;gap:8px;min-width:0}
+.app-head h1{font-size:28px}
+.intro{margin-top:24px;max-width:65ch}
+.shots{display:flex;gap:12px;overflow-x:auto;margin-top:28px;padding-bottom:8px;scroll-snap-type:x mandatory}
+.shots img{width:200px;height:auto;aspect-ratio:9/16;flex:none;border-radius:12px;scroll-snap-align:start}
+.sec{margin-top:40px;display:flex;flex-direction:column;gap:16px}
+.sec>h2{font-size:20px}
+.feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px 32px}
+.feat h3{font-size:16px;margin-bottom:4px}
+.feat ul{margin:0;padding-left:18px;color:var(--muted)}
+@media (max-width:480px){.shots img{width:160px}.app-head{grid-template-columns:64px minmax(0,1fr)}.app-head .icon{width:64px;height:64px;border-radius:16px}.app-head h1{font-size:24px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top"><a class="home" href="../">parkho79 Apps</a><a href="en/" hreflang="en">English</a></header>
+<div class="app-head"><img class="icon" src="../assets/mycalendar.png" alt="" width="88" height="88">
+  <div><h1>My Calendar</h1><p class="muted">음력·공휴일이 한눈에 보이는 깔끔한 달력 &amp; 일정 캘린더, 큰 글씨 조절, 홈 화면 위젯</p>
+    <div class="btns"><a class="btn pri" href="https://play.google.com/store/apps/details?id=com.parkho.mycalendar&amp;hl=ko">Google Play</a></div></div></div>
+<p class="intro">내 일정과 공휴일, 음력 날짜를 한 화면에서 보여 주는 깔끔한 달력·일정 관리 앱이자 홈 화면 달력 위젯입니다. 날짜와 일정 글자를 크게 키울 수 있어 부모님도 보기 편하고, 휴대폰에 저장된 일정도 자동으로 함께 보여 줍니다.</p>
+<div class="shots" aria-label="스크린샷"><img src="img/ko-1.jpg" alt="스크린샷 1" width="540" height="960" loading="lazy"><img src="img/ko-2.jpg" alt="스크린샷 2" width="540" height="960" loading="lazy"><img src="img/ko-3.jpg" alt="스크린샷 3" width="540" height="960" loading="lazy"><img src="img/ko-4.jpg" alt="스크린샷 4" width="540" height="960" loading="lazy"><img src="img/ko-5.jpg" alt="스크린샷 5" width="540" height="960" loading="lazy"></div>
+<section class="sec"><h2>주요 기능</h2><div class="feat"><div><h3>공휴일</h3><ul><li>대한민국 등 여러 나라 공휴일</li><li>여러 나라 공휴일을 함께 표시</li><li>공휴일 데이터 자동 업데이트</li></ul></div><div><h3>큰 글씨도 내 눈에 맞게</h3><ul><li>날짜·일정·음력 글자 크기를 각각 조절</li><li>미리보기로 바로 확인</li></ul></div><div><h3>음력 표시</h3><ul><li>날짜 옆(또는 아래)에 음력 날짜</li><li>한국 음력, 중국 농력, 베트남 음력</li></ul></div><div><h3>4가지 보기</h3><ul><li>년·월·주·일 보기</li><li>여러 날 일정은 이어지는 막대로</li></ul></div><div><h3>홈 화면 위젯</h3><ul><li>일정·음력·공휴일이 함께 보이는 월간 위젯</li><li>위젯에서 이전·다음 달, 오늘로 이동</li></ul></div><div><h3>일정과 알림</h3><ul><li>종일·반복 일정 추가와 수정</li><li>길게 눌러 끌어 옮기기, 알림, 검색</li></ul></div></div></section>
+<footer class="foot"><a href="privacy/">개인정보처리방침</a><span>문의 <a href="mailto:parkho79@gmail.com">parkho79@gmail.com</a></span><span>© parkho79</span></footer>
+</div>
+</body>
+</html>
