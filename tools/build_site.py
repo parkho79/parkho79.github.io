@@ -6,6 +6,7 @@ parkho79.github.io 의 홈과 앱 소개 페이지를 만든다.
 - 문구를 고치면 이 파일의 APPS 를 고치고 다시 실행한다: python tools/build_site.py
 - 그림 원본이 없는 PC(예: Mac)에서는 --pages-only 로 페이지만 다시 만든다.
 """
+import hashlib
 import html
 import os
 import sys
@@ -262,7 +263,7 @@ def render_home(lang):
         a = app[lang]
         page = f"{up}{app['slug']}/" + ("" if lang == "ko" else "en/")
         rows.append(f"""
-<div class="row"><img class="icon" src="{up}assets/{app['slug']}.png" alt="" width="64" height="64">
+<div class="row"><img class="icon" src="{up}assets/{app['slug']}.png?v={ver(f"assets/{app['slug']}.png")}" alt="" width="64" height="64">
   <div><h2><a href="{page}">{esc(a['name'])}</a></h2>
     <p class="muted">{esc(a['short'])}</p>
     <div class="btns"><a class="btn pri" href="{page}">{t['more']}</a>{store_buttons(app, lang)}</div>
@@ -289,7 +290,7 @@ def render_app(app, lang):
     up = "../" if lang == "ko" else "../../"
     img = "img/" if lang == "ko" else "../img/"
     shots = "".join(
-        f'<img src="{img}{lang}-{i}.jpg" alt="{t["shots_label"]} {i}" width="540" height="960" loading="lazy">'
+        f'<img src="{img}{lang}-{i}.jpg?v={ver(f"{slug}/img/{lang}-{i}.jpg")}" alt=""{t["shots_label"]} {i}" width="540" height="960" loading="lazy">'
         for i in range(1, len(app["shots"][lang][1]) + 1)
     )
     feats = "".join(
@@ -301,7 +302,7 @@ def render_app(app, lang):
     privacy = "privacy/" if lang == "ko" else "../privacy/"
     body = f"""
 <header class="top"><a class="home" href="{home}">{t['home']}</a><a href="{other}" hreflang="{other_lang(lang)}">{t['other_lang']}</a></header>
-<div class="app-head"><img class="icon" src="{up}assets/{slug}.png" alt="" width="88" height="88">
+<div class="app-head"><img class="icon" src="{up}assets/{slug}.png?v={ver(f"assets/{slug}.png")}" alt="" width="88" height="88">
   <div><h1>{esc(a['name'])}</h1><p class="muted">{esc(a['short'])}</p>
     <div class="btns">{store_buttons(app, lang, primary=True)}</div></div></div>
 <p class="intro">{esc(a['intro'])}</p>
@@ -342,7 +343,7 @@ def page_html(lang, title, desc, body, canonical, alternates, og_image="assets/p
 <meta property="og:type" content="website">
 <meta property="og:title" content="{esc(title)}">
 <meta property="og:description" content="{esc(desc)}">
-<meta property="og:image" content="{base}{og_image}">
+<meta property="og:image" content="{base}{og_image}?v={ver(og_image)}">
 <meta property="og:url" content="{base}{canonical}">
 <!-- 이 파일은 tools/build_site.py 로 만든다. 직접 고치지 말고 스크립트를 고쳐 다시 만든다 -->
 <style>{CSS}</style>
@@ -353,6 +354,13 @@ def page_html(lang, title, desc, body, canonical, alternates, og_image="assets/p
 </body>
 </html>
 """
+
+
+def ver(rel_path):
+    """
+    그림 주소 뒤에 붙일 버전 (파일 내용 해시 앞 8자리). 그림이 바뀌면 주소가 달라져 브라우저가 예전 그림을 다시 쓰지 않는다
+    """
+    return hashlib.md5((ROOT / rel_path).read_bytes()).hexdigest()[:8]
 
 
 def home_path(lang):
